@@ -11,14 +11,6 @@ async def my_background_task():
     sys.exit(0)
 
 
-@client.event
-async def on_ready():
-    print("Logged in as")
-    print(client.user.name)
-    print(client.user.id)
-    print("------")
-
-
 def main():
     with open("/etc/nixos/discord_token.txt", "r") as f:
         token = f.read().rstrip()
