@@ -8,6 +8,9 @@ authors = ["Alex Martens <alexmgit@protonmail.com>"]
 python = "^3.8"
 "discord.py" = "^1"
 
+[tool.poetry.scripts]
+idasen = "mondaybot.cli:main"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
