@@ -2,7 +2,7 @@
 name = "mondaybot"
 version = "0.1.0"
 description = ""
-authors = ["Alex Martens <alexmgit@protonmail.com>"]
+authors = ["Alex Martens <alex@thinglab.org>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"

@@ -1,3 +1,4 @@
+import argparse
 import discord
 import sys
 
@@ -12,7 +13,11 @@ async def my_background_task():
 
 
 def main():
-    with open("/etc/nixos/discord_token.txt", "r") as f:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--token-file", help="Path to the token file")
+    args = parser.parse_args()
+
+    with open(args.token_file, "r") as f:
         token = f.read().rstrip()
 
     client.loop.create_task(my_background_task())
