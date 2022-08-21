@@ -1,4 +1,5 @@
 import argparse
+import asyncio
 import discord
 import sys
 
@@ -12,7 +13,7 @@ async def my_background_task():
     sys.exit(0)
 
 
-def main():
+async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--token-file", help="Path to the token file")
     args = parser.parse_args()
@@ -20,9 +21,9 @@ def main():
     with open(args.token_file, "r") as f:
         token = f.read().rstrip()
 
-    client.loop.create_task(my_background_task())
-    client.run(token)
+    async with client:
+        await asyncio.gather(client.start(token), my_background_task())
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
